@@ -3,3 +3,6 @@
 
 # dev-specific
 dev.js
+
+# prod-specific
+prod.js

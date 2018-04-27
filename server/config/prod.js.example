@@ -1,0 +1,5 @@
+// prod.js.example
+module.exports = {
+    mongoURI: 'mongodb://<username>:<password>#!@yourMongoDBInstance',
+    cookieKey: 'poiulkjlikjillkiliertdkel'
+};

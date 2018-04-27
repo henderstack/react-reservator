@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Express/GraphQL server for the React-Reservator Demonstration",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "React",
+    "GraphQL",
+    "Node.js",
+    "Express"
+  ],
+  "author": "Bryan Henderson",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "cookie-session": "^2.0.0-beta.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.7",
+    "graphql-iso-date": "^3.5.0",
+    "mongoose": "^5.0.16"
+  }
+}

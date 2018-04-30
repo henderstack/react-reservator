@@ -8,7 +8,7 @@ const ReservationModel = require('../../models/Reservation');
 exports.addReservation = {
   type: reservationType,
   args: {
-    id: {
+    reservationId: {
       type: new GraphQLNonNull(GraphQLID)
     },
     name: {

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React-Reservator",
+  "name": "A Relatively Simple GraphQL Demo, Using React",
   "icons": [
     {
       "src": "favicon.ico",

@@ -9,7 +9,7 @@ exports.reservationType = new GraphQLObjectType({
   name: 'reservation',
   fields:  () => {
     return {
-      id: {
+      reservationId: {
         type: new GraphQLNonNull(GraphQLID)
       },
       name: {
@@ -19,10 +19,10 @@ exports.reservationType = new GraphQLObjectType({
           type: GraphQLString
       },
       arrivalDate: {
-          type: GraphQLDate
+          type: GraphQLString
       },
       departureDate: {
-          type: GraphQLDate
+          type: GraphQLString
       }
     }
   }

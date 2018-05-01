@@ -4,8 +4,11 @@
   "description": "Express/GraphQL server for the React-Reservator Demonstration",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test",
-    "start": "node index.js"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [
     "React",
@@ -25,6 +28,7 @@
     "graphql-iso-date": "^3.5.0",
     "moment": "^2.22.1",
     "mongoose": "^5.0.16",
+    "nodemon": "^1.17.3",
     "uuid": "^3.2.1"
   }
 }

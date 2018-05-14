@@ -25,7 +25,6 @@ exports.addReservation = {
     }
   },
   resolve(root, params) {
-    console.log(JSON.stringify(params));
     const rModel = new ReservationModel(params);
     const newReservation = rModel.save();
     if (!newReservation) {

@@ -19,10 +19,10 @@ exports.reservationType = new GraphQLObjectType({
           type: GraphQLString
       },
       arrivalDate: {
-          type: GraphQLString
+          type: GraphQLDate
       },
       departureDate: {
-          type: GraphQLString
+          type: GraphQLDate
       }
     }
   }

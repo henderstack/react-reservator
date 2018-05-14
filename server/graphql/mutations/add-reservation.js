@@ -18,13 +18,14 @@ exports.addReservation = {
         type: new GraphQLNonNull(GraphQLString)
     },
     arrivalDate: {
-        type: new GraphQLNonNull(GraphQLString)
+        type: new GraphQLNonNull(GraphQLDate)
     },
     departureDate: {
-        type: new GraphQLNonNull(GraphQLString)
+        type: new GraphQLNonNull(GraphQLDate)
     }
   },
   resolve(root, params) {
+    console.log(JSON.stringify(params));
     const rModel = new ReservationModel(params);
     const newReservation = rModel.save();
     if (!newReservation) {

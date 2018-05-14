@@ -47,11 +47,11 @@ exports.queryType = new GraphQLObjectType({
             },
             arrivalDate: {
               name: 'arrivalDate',
-              type: new GraphQLNonNull(GraphQLString)
+              type: new GraphQLNonNull(GraphQLDate)
             },
             departureDate: {
               name: 'departureDate',
-              type: new GraphQLNonNull(GraphQLString)
+              type: new GraphQLNonNull(GraphQLDate)
             }
           },
           resolve: (root, params) => {

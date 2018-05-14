@@ -8,9 +8,9 @@ const ReservationSchema = new Schema({
         required: true },
     hotelName: { type: String, 
         required: true },
-    arrivalDate: { type: String, 
+    arrivalDate: { type: Date, 
         required: true },
-    departureDate: { type: String, 
+    departureDate: { type: Date, 
         required: true }
 });
 

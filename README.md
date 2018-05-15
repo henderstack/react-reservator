@@ -7,7 +7,7 @@ This originally started out as a 'code challenge,' for what I could get done in 
 Note: Presently, the React client is being built out. I get about 15 minutes a day to write code that isn't for work, so the demo may or may not be up and running depending on where I last left off. 
 
 - the demo client is currently offline, that means I've hit an odd breakpoint somewhere, messing with it. GraphiQL is currently running, and can be reached at:
-[GraphiQL Access](https://blooming-caverns-52502.herokuapp.com/)
+[GraphiQL Access](https://blooming-caverns-52502.herokuapp.com/graphiql)
 
 - This is currently using MLab (so yes, the persistence is provided by MongoDB), as I made a compromise against running a local Couchbase instance.
 

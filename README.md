@@ -2,7 +2,7 @@
 
 A quick and simple NodeJS/Mongo/GraphQL/React/Redux demo application.
 This originally started out as a 'code challenge,' for what I could get done in 4-5 hours, but seeing as I've only been able to put in a few minutes here and there, and the server portion works, I'm building out a client (the React/Redux part), and adding/moving bits and pieces as I go (so, the demo will likely break for periods of time, until I can get off work for a few minutes and hit it again).
-[Demonstration Deployment](https://react-reservator.herokuapp.com/)
+[Demonstration Deployment](https://blooming-caverns-52502.herokuapp.com/)
 
 Note: Presently, the React client is being built out. I get about 15 minutes a day to write code that isn't for work, so the demo may or may not be up and running depending on where I last left off. 
 

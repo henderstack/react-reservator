@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Express/GraphQL server for the React-Reservator Demonstration",
   "main": "index.js",
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0"
+  },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",

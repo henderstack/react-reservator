@@ -10,7 +10,7 @@ import {
     TableRowColumn,
   } from 'material-ui/Table';
 
-  export default class ReservationTable extends Component {
+  class ReservationTable extends Component {
       tableState = {
         fixedHeader: true,
         fixedFooter: true,

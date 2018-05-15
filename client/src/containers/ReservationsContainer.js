@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+import { Link, withRouter } from 'react-router-dom';
 import ReservationTable from '../components/ReservationTable';
 
 class ReservationsContainer extends React.Component {
@@ -19,25 +21,25 @@ class ReservationsContainer extends React.Component {
 
         return (
             <div>
-                {this.props.reservations && <ReservationTable todos={this.props.reservations} />}
+                {this.props.reservations && <ReservationTable reservations={this.props.reservations} />}
             </div>
         );
     }
 
 }
 
-const mapStateToProps = ({ reservations }) => {
-    return {
-        ...reservations
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        loadReservations: () => {
-            dispatch(gqlFetchAllAction({ userId }))
+const RESERVATIONS_QUERY = gql`
+    query {
+        reservations {
+        reservationId
+        name
+        hotelName
+        arrivalDate
+        departureDate
         }
-    }
-}
+    }`
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReservationsContainer);
+export default graphql(RESERVATIONS_QUERY, {
+    name: 'reservations',
+    options: {fetchPolicy: 'network-only'}
+})(withRouter(ReservationsContainer))

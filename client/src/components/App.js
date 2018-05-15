@@ -5,6 +5,7 @@ import getTheme from '../theme/theme';
 import 'typeface-roboto';
 
 import Header from './Header';
+import ReservationsContainer from '../containers/ReservationsContainer';
 
 const muiTheme = getTheme();
 
@@ -15,6 +16,7 @@ class App extends Component {
         <div>
           <Header/>
           <p>{process.env.REACT_APP_GQL_URI}</p>
+          <ReservationsContainer />
         </div>
       </MuiThemeProvider>
     );

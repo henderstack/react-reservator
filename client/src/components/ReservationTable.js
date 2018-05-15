@@ -24,6 +24,8 @@ import {
         height: '300px',
       };
 
+      reservations = this.props.reservations;
+
       render() {
         return (
           <div>
@@ -58,7 +60,7 @@ import {
                 showRowHover={this.tableState.showRowHover}
                 stripedRows={this.tableState.stripedRows}
               >
-                {tableData.map( (row, index) => (
+                {reservations.map( (row, index) => (
                   <TableRow key={index}>
                     <TableRowColumn>{index}</TableRowColumn>
                     <TableRowColumn>{row.name}</TableRowColumn>
@@ -89,3 +91,5 @@ import {
         );
     }
   }
+
+  export default ReservationTable

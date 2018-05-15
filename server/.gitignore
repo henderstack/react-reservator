@@ -1,8 +1,0 @@
-# dependencies
-/node_modules
-
-# dev-specific
-dev.js
-
-# prod-specific
-# prod.js

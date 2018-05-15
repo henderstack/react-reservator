@@ -29,6 +29,7 @@ import {
       render() {
         return (
           <div>
+            
             <Table
               height={this.state.height}
               fixedHeader={this.state.fixedHeader}
@@ -43,7 +44,7 @@ import {
               >
                 <TableRow>
                   <TableHeaderColumn colSpan="5" tooltip="" style={{textAlign: 'center'}}>
-                    I am a table header. Hear me roar!
+                    React-Reservator: Reservations
                   </TableHeaderColumn>
                 </TableRow>
                 <TableRow>
@@ -82,7 +83,7 @@ import {
                 </TableRow>
                 <TableRow>
                   <TableRowColumn colSpan="5" style={{textAlign: 'center'}}>
-                    I am a table footer. Hear me roar!
+                    React-Reservator: Reservations
                   </TableRowColumn>
                 </TableRow>
               </TableFooter>

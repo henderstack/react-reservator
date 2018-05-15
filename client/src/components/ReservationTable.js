@@ -60,7 +60,7 @@ import {
                 showRowHover={this.tableState.showRowHover}
                 stripedRows={this.tableState.stripedRows}
               >
-                {reservations.map( (row, index) => (
+                {this.reservations.map( (row, index) => (
                   <TableRow key={index}>
                     <TableRowColumn>{index}</TableRowColumn>
                     <TableRowColumn>{row.name}</TableRowColumn>

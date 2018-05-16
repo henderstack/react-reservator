@@ -9,7 +9,7 @@ class ReservationsContainer extends React.Component {
     componentDidMount() {}
 
     render() {
-
+        //console.log("reservations:: " + JSON.stringify(this.props.reservations))
         //add loading and failure state
         if (this.props.isLoading) {
             return <span>Loading...</span>
@@ -21,7 +21,7 @@ class ReservationsContainer extends React.Component {
 
         return (
             <div>
-                {this.props.reservations && <ReservationTable reservations={this.props.reservations} />}
+                {this.props.queryReservations.reservations && <ReservationTable reservations={this.props.queryReservations.reservations} />}
             </div>
         );
     }
@@ -29,7 +29,7 @@ class ReservationsContainer extends React.Component {
 }
 
 const RESERVATIONS_QUERY = gql`
-    query {
+    query  queryReservations {
         reservations {
         reservationId
         name
@@ -40,6 +40,6 @@ const RESERVATIONS_QUERY = gql`
     }`
 
 export default graphql(RESERVATIONS_QUERY, {
-    name: 'reservations',
+    name: 'queryReservations',
     options: {fetchPolicy: 'network-only'}
 })(withRouter(ReservationsContainer))

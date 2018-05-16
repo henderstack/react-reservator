@@ -7,7 +7,6 @@ import registerServiceWorker from './registerServiceWorker'
 import ApolloClient, { InMemoryCache } from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 
-console.log("URI:: " + process.env.REACT_APP_GQL_URI)
 const gqlURI = process.env.REACT_APP_GQL_URI
 
 const client = new ApolloClient({

@@ -15,7 +15,7 @@ class App extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <Header/>
-          <p>{process.env.REACT_APP_GQL_URI}</p>
+          <ReservationsContainer />
         </div>
       </MuiThemeProvider>
     );

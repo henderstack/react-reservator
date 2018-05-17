@@ -6,13 +6,13 @@ This originally started out as a 'code challenge,' for what I could get done in 
 
 Note: Presently, the React client is being built out. I get about 15 minutes a day to write code that isn't for work, so the demo may or may not be up and running depending on where I last left off. 
 
-- the demo client is currently offline, that means I've hit an odd breakpoint somewhere, messing with it. GraphiQL is currently running, and can be reached at:
+- the demo client is currently up and functioning. For the time being, GraphiQL is also enabled, and can be reached at:
 [GraphiQL Access](https://blooming-caverns-52502.herokuapp.com/graphql)
 
-- This is currently using MLab (so yes, the persistence is provided by MongoDB), as I made a compromise against running a local Couchbase instance.
+- This is currently using MLab (so yes, persistence is presently provided by MongoDB), as I made a compromise against running a local Couchbase instance.
 
-- 'Production'-wise, I'm using Heroku, so I don't wind up cluttering my AWS account
+- 'Production'-wise, I'm using Heroku, so I don't wind up cluttering my AWS account (I have some different plans regarding AWS)
 
-- Eventually, I'll containerize the application, pipeline it, etc., but this is small-scale, and I'm time-crunched at the moment.
+- Eventually, I'll containerize the application, pipeline it, etc.
 
-- GraphiQL is enabled at the moment, so http://localhost:4000/graphql to muck about with the API if you choose to clone it.
+- GraphiQL is enabled at the moment, so http://localhost:4000/graphql to muck about with the API if you choose to clone it and run it locally.

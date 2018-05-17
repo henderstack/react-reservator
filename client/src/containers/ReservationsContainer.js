@@ -1,45 +1,57 @@
-import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
-import { Link, withRouter } from 'react-router-dom';
-import ReservationTable from '../components/ReservationTable';
+import React, { Component } from 'react'
+import { graphql, compose } from 'react-apollo'
+import gql from 'graphql-tag'
+import { Link, withRouter } from 'react-router-dom'
+import { Tabs, Tab } from 'material-ui/Tabs'
+import ReservationTable from '../components/ReservationTable'
+import ReservationSearchTable from '../components/ReservationSearchTable'
 
-class ReservationsContainer extends React.Component {
+const styles = {
+    headline: {
+      fontSize: 24,
+      paddingTop: 16,
+      marginBottom: 12,
+      fontWeight: 400,
+    }
+  }
 
-    componentDidMount() {}
+
+
+class ReservationsContainer extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            value: 'a'
+        }
+    }
+
+    handleChange = (value) => {
+        this.setState({
+          value: value,
+        })
+      }
 
     render() {
-        //console.log("reservations:: " + JSON.stringify(this.props.reservations))
-        //add loading and failure state
-        if (this.props.isLoading) {
-            return <span>Loading...</span>
-        }
-
-        if (this.props.isFailure) {
-            return <span>Error loading Reservations!</span>
-        }
-
         return (
-            <div>
-                {this.props.queryReservations.reservations && <ReservationTable reservations={this.props.queryReservations.reservations} />}
-            </div>
-        );
+            <Tabs
+                value={this.state.value}
+                onChange={this.handleChange}
+            >
+                <Tab label="All Booked Reservations" value="a">
+                    <div>
+                        <ReservationTable/>
+                    </div>
+                </Tab>
+                <Tab label="Search Reservations">
+                    <div>
+                        <ReservationSearchTable/>
+                    </div>
+                </Tab>
+            </Tabs>
+        )
     }
 
 }
 
-const RESERVATIONS_QUERY = gql`
-    query  queryReservations {
-        reservations {
-        reservationId
-        name
-        hotelName
-        arrivalDate
-        departureDate
-        }
-    }`
-
-export default graphql(RESERVATIONS_QUERY, {
-    name: 'queryReservations',
-    options: {fetchPolicy: 'network-only'}
-})(withRouter(ReservationsContainer))
+export default (withRouter(ReservationsContainer))

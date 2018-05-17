@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 import { ApolloConsumer } from 'react-apollo';
 import gql from 'graphql-tag'
 import { Paper, FlatButton, TextField, DatePicker } from 'material-ui'
@@ -13,7 +14,7 @@ import {
   } from 'material-ui/Table'
 
 
-const RESERVATION_NAME_DATES_QUERY = gql`
+export const RESERVATION_NAME_DATES_QUERY = gql`
   query getReservationsByHotelNameAndDates($hotelName: String!, $arrivalDate: Date!, $departureDate: Date!) {
       reservationByNameDates(hotelName:$hotelName, arrivalDate:$arrivalDate, departureDate:$departureDate) {
           reservationId
@@ -36,7 +37,12 @@ class ReservationSearchTable extends Component {
       enableSelectAll: false,
       deselectOnClickaway: true,
       showCheckboxes: true,
-        reservations: null
+      reservations: null, 
+      hotelName: '',
+      arrivalDate: null,
+      departureDate: null,
+      arrDateStr: '',
+      depDateStr: ''
     }
 
     searchStyle = {
@@ -63,7 +69,10 @@ class ReservationSearchTable extends Component {
         let arrivalDate = date.toISOString()
         arrivalDate = arrivalDate.substring(0, 10)
         this.setState({
-          arrivalDate: arrivalDate
+            arrDateStr: arrivalDate
+        })
+        this.setState({
+          arrivalDate: date
         })
     }
 
@@ -71,7 +80,10 @@ class ReservationSearchTable extends Component {
         let departureDate = date.toISOString()
         departureDate = departureDate.substring(0, 10)
         this.setState({
-          departureDate: departureDate
+            depDateStr: departureDate
+        })
+        this.setState({
+          departureDate: date
         })
     }
 
@@ -114,10 +126,10 @@ class ReservationSearchTable extends Component {
                                         const { data } = await client.query({
                                           query: RESERVATION_NAME_DATES_QUERY,
                                           variables: { hotelName: this.state.hotelName,
-                                                       arrivalDate: this.state.arrivalDate,
-                                                       departureDate: this.state.departureDate }
+                                                       arrivalDate: this.state.arrDateStr,
+                                                       departureDate: this.state.depDateStr }
                                         });
-                                        this.onReservationsFetched(data.reservations);
+                                        this.onReservationsFetched(data.reservationByNameDates);
                                       }} />
                             </div>
                             { this.state.reservations &&
@@ -140,7 +152,7 @@ class ReservationSearchTable extends Component {
                                     </TableHeaderColumn>
                                 </TableRow>
                                 <TableRow>
-                                    <TableHeaderColumn tooltip="The Reservation's ID">Index</TableHeaderColumn>
+                                    <TableHeaderColumn tooltip="The Reservation's Unique ID">Reservation ID</TableHeaderColumn>
                                     <TableHeaderColumn tooltip="The Customer Name">Name</TableHeaderColumn>
                                     <TableHeaderColumn tooltip="The Name of the Hotel">Hotel Name</TableHeaderColumn>
                                     <TableHeaderColumn tooltip="The Customer's Date of Arrival (yyyy-mm-dd)">Arrival Date</TableHeaderColumn>
@@ -155,11 +167,11 @@ class ReservationSearchTable extends Component {
                                 >
                                 {this.state.reservations.map( (row, index) => (
                                     <TableRow key={index}>
-                                    <TableRowColumn>{index}</TableRowColumn>
-                                    <TableRowColumn>{row.name}</TableRowColumn>
-                                    <TableRowColumn>{row.hotelName}</TableRowColumn>
-                                    <TableRowColumn>{row.arrivalDate}</TableRowColumn>
-                                    <TableRowColumn>{row.departureDate}</TableRowColumn>
+                                        <TableRowColumn>{row.reservationId}</TableRowColumn>
+                                        <TableRowColumn>{row.name}</TableRowColumn>
+                                        <TableRowColumn>{row.hotelName}</TableRowColumn>
+                                        <TableRowColumn>{row.arrivalDate}</TableRowColumn>
+                                        <TableRowColumn>{row.departureDate}</TableRowColumn>
                                     </TableRow>
                                     ))}
                                 </TableBody>
@@ -182,5 +194,5 @@ class ReservationSearchTable extends Component {
     }
 }
 
-export default ReservationSearchTable
+export default (withRouter(ReservationSearchTable))
 
